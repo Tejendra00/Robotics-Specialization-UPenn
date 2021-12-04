@@ -19,8 +19,8 @@ u2 = 0;
 
 % FILL IN YOUR CODE HERE
 z_ddot=des_state.acc(2,1);
-kdz=10;
-kpz=1000;
+kdz=6.3;
+kpz=80;
 etz=des_state.pos(2,1)-state.pos(2,1);
 e_dottz=des_state.vel(2,1)-state.vel(2,1);
 
@@ -32,19 +32,20 @@ end
 
 y_ddot=des_state.acc(1,1);
 y_dddot=0;
-kdy=2;
-kpy=50;
+kdy=1.6;
+kpy=70;
 ety=des_state.pos(1,1)-state.pos(1,1);
 e_dotty=des_state.vel(1,1)-state.vel(1,1);
 phi_c=-(y_ddot+kpy*ety+kdy+e_dotty)/params.gravity;
+
 
 phi_c_dot=-(y_dddot+kpy*(e_dotty)+kdy*(y_ddot-(-params.gravity*state.rot)));
 % phi_c_dot=0;
 phi_c_ddot=0;
 
 
-kdphi=50;
-kpphi=100;
+kdphi=60;
+kpphi=90;
 etphi=phi_c-state.rot(1,1);
 e_dottphi=phi_c_dot-state.omega(1,1);
 
